@@ -1,0 +1,26 @@
+--------installing faker (random info generator into IDE container--------
+
+npm install @faker-js/faker --save-dev
+
+
+---------syntax required to use faker inside a JS file ---------------
+
+const { faker } = require('@faker-js/faker');
+
+
+
+---------defining faker function to genrrate random adress and personal info------------
+
+const { faker } = require('@faker-js/faker');
+
+function generateAddress(){
+console.log(faker.internet.email());
+console.log(faker.address.streetAddress());
+console.log(faker.address.city());
+console.log(faker.address.state());	
+}
+
+generateAddress(); 
+generateAddress(); 
+generateAddress(); 
+generateAddress(); 
