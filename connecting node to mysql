@@ -1,0 +1,35 @@
+---------INSTALL the MYSQL PACKAGE-------
+
+npm install mysql
+
+
+
+----------CONNECT TO DATABASE-----------
+
+var mysql = require('mysql');
+ 
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',     // your root username
+  database : 'join_us'   // the name of your db
+});
+
+
+
+-----------EXAMAPLE QUERY FROM DB USING MySQL NODE PACKAGE---------
+
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+   if (error) throw error;
+   console.log('The solution is: ', results[0].solution);
+});
+
+
+---------ANOTHER EXAMPLE QUERY PULLING TIME?DATE INFO WITH 3 RESULTS -----------
+
+var q = 'SELECT CURTIME() as time, CURDATE() as date, NOW() as now';
+connection.query(q, function (error, results, fields) {
+  if (error) throw error;
+  console.log(results[0].time);
+  console.log(results[0].date);
+  console.log(results[0].now);
+});
